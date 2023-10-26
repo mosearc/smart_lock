@@ -1,1 +1,1 @@
-# centralized_lock
+# smart_lock
