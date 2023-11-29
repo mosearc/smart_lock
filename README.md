@@ -13,12 +13,13 @@ The features implemented and tested in the project are the following:
 
 ### HARDWARE:
 #### MSP432P401R + BOOSTXL-EDUMKII
+  foto + descrizion
+#### SERVO MOTOR
   foto + descrizione
-#### SENSOR1
-  foto + descrizione
-#### SENSOR2
+#### BUZZER
   foto + descrizione
 
+  
 ### SOFTWARE:
 - [MSP Driver Library](https://www.ti.com/tool/MSPDRIVERLIB)
 - ...
