@@ -69,11 +69,11 @@ void *mainThreadServo(void *arg0)
 
     PWM_start(pwmHandle);
     while (1) {
-        PWM_setDuty(pwmHandle, dutyCycle+600); //0 gradi
+        PWM_setDuty(pwmHandle, dutyCycle+1000); //0 gradi
         sleep(1);
-        PWM_setDuty(pwmHandle, dutyCycle+1400); //90 gradi
+        PWM_setDuty(pwmHandle, dutyCycle+1500); //90 gradi
         sleep(1);
-        PWM_setDuty(pwmHandle, dutyCycle+2400); //180 gradi
+        PWM_setDuty(pwmHandle, dutyCycle+2000); //180 gradi
         sleep(1);
     }
 }
