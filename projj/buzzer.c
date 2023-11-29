@@ -52,7 +52,7 @@ void *mainThreadBuzzer(void *arg0)
         uint16_t   dutyInc = 100;
 
         /* Sleep time in microseconds */
-        uint32_t   time = 50000;
+        uint32_t   time = 25000;
         PWM_Handle pwm2 = NULL;
         PWM_Params params;
 
