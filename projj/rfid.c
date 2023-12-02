@@ -56,7 +56,6 @@ SPI_Transaction spiTransaction = {0};
 
 void *mainThreadRfid(void *arg0)
 {
-    printf("db2\n");
     uint8_t cardID[5];
     char buffer[5];
 
@@ -78,7 +77,6 @@ void *mainThreadRfid(void *arg0)
 
     while(1){
         if (MFRC522_Check(cardID) == MI_OK){
-            printf("db3\n");
             sprintf(buffer, "%02x %02x %02x %02x %02x \n", cardID[0], cardID[1], cardID[2], cardID[3], cardID[4] );
             printf("%s", buffer);
             sleep(1);
