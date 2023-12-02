@@ -4,6 +4,7 @@ this project consist in a smart lock w rfid, automatized dors w movement sensor,
 We want simplify your acces to the house or private room!
 
 Our first idea:
+
 ![Screenshot_20231202_121317](https://github.com/mosearc/smart_lock/assets/115136308/d00d78fc-bf80-49e7-99d0-fd00e4f756e2)
 
 
