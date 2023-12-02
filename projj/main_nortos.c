@@ -44,6 +44,8 @@
 
 extern void *mainThreadBuzzer(void *arg0);
 
+extern void *mainThreadRfid(void *arg0);
+
 extern void *mainThreadServo(void *arg0);
 
 /*
@@ -61,6 +63,8 @@ int main(void)
     mainThreadServo(NULL);
 
     mainThreadBuzzer(NULL);
+
+    mainThreadRfid(NULL);
 
     while (1) {}
 }
