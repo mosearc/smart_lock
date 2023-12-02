@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019, Texas Instruments Incorporated
+ * Copyright (c) 2015-2019, Texas Instruments Incorporated
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,46 +25,62 @@
  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
 /*
- *  ======== main_nortos.c ========
  */
-#include <stdint.h>
+/* For usleep() */
+#include <unistd.h>
 #include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
 
-#include <NoRTOS.h>
+/* Driver Header files */
+//#include <ti/drivers/PWM.h>
+#include <ti/drivers/GPIO.h>
+#include <ti/drivers/SPI.h>
+
 
 /* Driver configuration */
-#include <ti/drivers/Board.h>
+#include "ti_drivers_config.h"
 
-extern void *mainThreadBuzzer(void *arg0);
+#include "mfrc522.h"
 
-extern void *mainThreadRfid(void *arg0);
+SPI_Params spiParams;
+SPI_Handle spiHandle;
+SPI_Transaction spiTransaction = {0};
 
-extern void *mainThreadServo(void *arg0);
 
-/*
- *  ======== main ========
- */
-int main(void)
+void *mainThreadRfid(void *arg0)
 {
-    /* Call driver init functions */
-    Board_init();
+    uint8_t cardID[5];
+    char buffer[5];
 
-    /* Start NoRTOS */
-    NoRTOS_start();
+    GPIO_init();
+    SPI_init();
 
-    /* Call mainThread function */
-    mainThreadServo(NULL);
+    SPI_Params_init(&spiParams);
+    spiParams.bitRate = 4000000;
+    spiParams.dataSize = 8;
+    spiParams.transferMode = SPI_MODE_BLOCKING;
+    spiHandle = SPI_open(CONFIG_SPI_0, &spiParams);
+    if(spiHandle == NULL){
+        while(1){
+            printf("no work\n");
+        }
+    }
 
-    mainThreadBuzzer(NULL);
+    MFRC522_Init();
 
-    mainThreadRfid(NULL);
+    while(1){
+        if (MFRC522_Check(cardID) == MI_OK){
+            sprintf(buffer, "%02x %02x %02x %02x %02x \n", cardID[0], cardID[1], cardID[2], cardID[3], cardID[4] );
+            printf("%s", buffer);
+            sleep(1);
+        }
+    }
 
-    while (1) {}
 }
