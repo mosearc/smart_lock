@@ -21,8 +21,16 @@ The features implemented and tested in the project are the following:
   foto + descrizion
 #### SERVO MOTOR
   foto + descrizione
+  nero->ground
+  rosso->5v
+  giallo->signal p5.6
 #### BUZZER
   foto + descrizione
+  p2.7
+#### RIFID
+  foto + descrizione
+  ![photo_6019260051480493137_x](https://github.com/mosearc/smart_lock/assets/115136308/b9338545-8beb-4d72-938b-f96a18214ee1)
+
 
   
 ### SOFTWARE:
