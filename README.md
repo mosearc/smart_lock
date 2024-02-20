@@ -1,7 +1,7 @@
 # SERVER HANDLED SMART LOCK UNIT
 ![Image](/scheme.png)
 ## Section links
- - [Description] (## Description)
+ - [Description](## Description)
  - [Video] (#Video)
  - [Presentation] (#Presentation)
  - [Requirments] (#Requirments)
