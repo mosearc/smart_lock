@@ -30,11 +30,11 @@ MCU capable of connecting WiFi to send IP packets and capable of communicate ser
 Any computer accessable from the lock MCU through IP network capable of running node.
 ### Software requirements
 1] Code Composer Studio (Texas Instrument)
-- [MSP Driver Library](https://www.ti.com/tool/MSPDRIVERLIB)
+  - [MSP Driver Library](https://www.ti.com/tool/MSPDRIVERLIB)
 2] Arduino IDE
-- ESP8266 Library
+  - ESP8266 Library
 3] Visual Studio Code
-- nodejs / npm
+  - nodejs / npm
 ## Project Layout
 ## Getting Started
 Mount the hardware following the schematic above.
