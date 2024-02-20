@@ -31,8 +31,10 @@ Any computer accessable from the lock MCU through IP network capable of running 
 ### Software requirements
 1] Code Composer Studio (Texas Instrument)
   - [MSP Driver Library](https://www.ti.com/tool/MSPDRIVERLIB)
+
 2] Arduino IDE
   - ESP8266 Library
+
 3] Visual Studio Code
   - nodejs / npm
 ## Project Layout
