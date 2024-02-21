@@ -1,64 +1,65 @@
-## Example Summary
+# SERVER HANDLED SMART LOCK UNIT
+![Image](/scheme.png)
+## Section links
+ - [Description] (#Description)
+ - [Video] (#Video)
+ - [Presentation] (#Presentation)
+ - [Requirments] (#Requirments)
+ - [Project Layout] (#Project Layout)
+ - [Getting Started] (#Getting Started)
+ - [Getting Started] (#Getting Started)
+ - [User Guide] (#User Guide)
+ - [Team Members] (#Team Members)
+## Description
+The project consists on a smart lock microcontroller device which authenticate an human user with 2 factors of authentication (NFC card and PIN) with the help of a IP reachable REST API HTTP server. Our model allows to have N smart locks all connected to the same server through IP internet. Thanks to the server, NFC cards and PINs can be created, deleted and handled remotelly.
+## Video
+[Link video](https://youtu.be/)
+## Presentation
+[Link presentation]()
+## Requirments
+### Hardware Requirements
+#### 1] MSP432P401R (logic and sensors interconnection):
+ - Servo Motor
+ - Buzzer
+- RFID sensor
+- Screen
+- Numeral pad
+#### 2] ESP8266MOD (server-to-msp interconnection through WiFi internet access):
+MCU capable of connecting WiFi to send IP packets and capable of communicate serially through UART with the MSP432. When the MSP432 needs to contact the server, it can send to the ESP8266 a specific command through UART (to check if a NFC card is authorized to open this specific door, for example). The ESP8266 will forward it to the server using WiFi and when receives a response sends it back to the MSP432.
+#### 3] SERVER:
+Any computer accessable from the lock MCU through IP network capable of running node.
+### Software requirements
+1] Code Composer Studio (Texas Instrument)
+- [MSP Driver Library](https://www.ti.com/tool/MSPDRIVERLIB)
+2] Arduino IDE
+- ESP8266 Library
+3] Visual Studio Code
+- nodejs / npm
+## Project Layout
+## Getting Started
+Mount the hardware following the schematic above.
+Clone the repo:
+``` bash
+git clone https://github.com/mosearc/smart_lock.git
+```
+Use the appropriate IDE for the module you want to compile and upload to the board.
+## User Guide
 
-Sample application to control on-board LEDs with the PWM driver.
-
-## Peripherals & Pin Assignments
-
-SysConfig generates the driver configurations into the __ti_drivers_config.c__
-and __ti_drivers_config.h__ files. Information on pins and resources used
-is present in both generated files. The SysConfig user interface can also be
-utilized to determine pins and resources used.
-
-
-* `CONFIG_PWM_0` - PWM instance used to control brightness of LED
-* `CONFIG_PWM_1` - PWM instance used to control brightness of LED
-
-## BoosterPacks, Board Resources & Jumper Settings
-
-For board specific jumper settings, resources and BoosterPack modifications,
-refer to the __Board.html__ file.
-
-> If you're using an IDE such as Code Composer Studio (CCS) or IAR, please
-refer to Board.html in your project directory for resources used and
-board-specific jumper settings.
-
-The Board.html can also be found in your SDK installation:
-
-        <SDK_INSTALL_DIR>/source/ti/boards/<BOARD>
-
-## Example Usage
-
-* Run the example.
-
-* The onboard LEDs will slowly vary in intensity.
-
-* Both LEDs connected to `CONFIG_PWM_0` and `CONFIG_PWM_1` will fade-in and
-  fade-out when running the application.
-
-## Application Design Details
-
-This application uses one thread, `mainThread` , which performs the following
-actions:
-
-1. Opens and initializes PWM driver objects.
-
-2. Uses the PWM driver to change the intensity of the LEDs.
-
-3. The thread sleeps for 50 milliseconds before changing LED intensity again.
-
-TI-RTOS:
-
-* When building in Code Composer Studio, the kernel configuration project will
-be imported along with the example. The kernel configuration project is
-referenced by the example, so it will be built first. The "release" kernel
-configuration is the default project used. It has many debug features disabled.
-These feature include assert checking, logging and runtime stack checks. For a
-detailed difference between the "release" and "debug" kernel configurations and
-how to switch between them, please refer to the SimpleLink MCU SDK User's
-Guide. The "release" and "debug" kernel configuration projects can be found
-under &lt;SDK_INSTALL_DIR&gt;/kernel/tirtos/builds/&lt;BOARD&gt;/(release|debug)/(ccs|gcc).
-
-FreeRTOS:
-
-* Please view the `FreeRTOSConfig.h` header file for example configuration
-information.
+## Next Features
+- Remote block/unblock handling
+- More local control using numpad for input and screen for output
+- More remote control adding server functionalities
+- Various apps for handling locks/cardIds/pins (web app / mobile apps / etc.)
+## Team members
+ - Mosè
+   - Developed RFID code
+   - ...
+ - Stefano
+   - Designed main final state machine
+   - ...
+ - Gabriele
+   - Developed
+   - ...
+ - Luca
+   - Developed ESP8622 code
+   - Developed Nodejs HTTP REST API server code
