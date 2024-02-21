@@ -28,7 +28,7 @@ The project consists on a microcontroller device handling the mechanism opening 
 ### Hardware Requirements
 
 #### 1] MSP432P401R Board + Educational booster pack (led, display):
-![Image](/media/boosterpack.png)
+![Image](/media/boosterpack.png =100x20)
 ![Image](/media/msp.jpg)
 
 For our project we used MSP432P401R Board a microcontroller from Texas Instruments based on a 32-bit ARM Cortex-M4 CPU. The Educational Booster Pack with its additional hardware peripherals is also required.
