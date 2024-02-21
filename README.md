@@ -15,10 +15,9 @@
 
 ## Description
 The project consists on a microcontroller device handling the mechanism opening and closing a door. Its job is to take as input authentication factors with sensors (i.e. RFID scanner for NFC card scan; NUMPAD for PIN or PUK), then contact a remote server on an IP network though WiFi and basing on server response decide if opening the door or not. It implements brute force prevention security measures like asking for PUK after 3 wrong PIN insertions. Our model allows to have N smart locks all connected to the same server through IP internet: this allows to add/remove/check identities remotely, but also to monitor when and who access any specific door (i.e. NFC cards and PINs can be created/deleted using a simple web app or mobile application; specific doors can be blocked in specific daily hours; etc.)
-
-## FEATURES:
-
 ## Video
+[![Video](https://img.youtube.com/vi/HvxnWQClJyk/0.jpg)](https://www.youtube.com/watch?v=HvxnWQClJyk)
+
 [Link video](https://youtu.be/HvxnWQClJyk)
 
 ## Presentation
@@ -76,6 +75,7 @@ This system consist in a servo motor that open the door when the pir sensor dete
 
   
 ## Project Layout
+``` 
 .
 ├── Esp8266
 │   └── main_esp.cpp
@@ -116,16 +116,14 @@ This system consist in a servo motor that open the door when the pir sensor dete
     ├── package.json
     ├── package-lock.json
     └── protocol.txt
-    
+```
 ## Getting Started
 - Mount the hardware following the schematic above.
 - Clone the repo:
 ``` bash
 git clone https://github.com/mosearc/smart_lock.git
 ```
-- Open the folder corresponding to the module you want to compile/upload/run using the appropriate IDE (as specified in [Software requirements](#Software-requirements) section). Make sure to obtain the libraries needed.
-## User Guide
-
+- Open the folder corresponding to the module you want to compile/upload/run using the appropriate IDE (as specified in [Software requirements](#Software-requirements) section). Make sure to obtain and import the libraries needed.
 ## Next Features
 - Remote block/unblock handling
 - More local control using numpad for input and screen for output
