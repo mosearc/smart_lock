@@ -1,0 +1,34 @@
+{
+  "locks": {
+    "LOCK0": {
+      "lockId": "LOCK0",
+      "apiKey": "1234",
+      "puk": "1000",
+      "blocked": false
+    }
+  },
+  "cards": {
+    "CARD0": {
+      "cardId": "CARD0",
+      "name": "card_0",
+      "cardIdPhysical": "203c595613",
+      "pin": "0000",
+      "locks": [
+        "LOCK0"
+      ],
+      "active": true,
+      "role": "user"
+    },
+    "CARD1": {
+        "cardId": "CARD1",
+        "name": "card_1",
+        "cardIdPhysical": "5bdc78df2",
+        "pin": "0001",
+        "locks": [
+          "LOCK0"
+        ],
+        "active": false,
+        "role": "user master"
+      }
+  }
+}

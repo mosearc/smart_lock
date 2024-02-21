@@ -1,0 +1,55 @@
+REST API PROTOCOL SPECIFICATION [MPU CLIENT <---> SERVER <---> UI MANAGER CLIENT]
+
+lock: {
+    lockId: string,
+    apiKey: string,
+    blocked: boolean,
+}
+card: {
+    cardId: string,
+    cardIdPhysical: string,
+    pin: string,
+    locks: [lockId: string],
+    active: boolean,
+    role: "master" | "passepartout" | "user",
+}
+status: {
+    result: string,
+    message: string,
+}
+
+//REQUIRES API_KEY
+GET /card/isauthorized?cardIdPhysical|pin&lockId
+200|ERR json(status)
+
+POST /lock/block?lockId
+200|ERR json(status)
+
+POST /lock/unblock?cardIdPhysical|pin&lockId
+200|ERR json(status)
+
+GET /lock/isblocked?lockId
+200|ERR json(status)
+
+
+
+
+//REQUIRES TOKEN
+PUT /lock/set json(lock)
+200|ERR json(RES)
+
+DELETE /lock/delete?lockid
+200|ERR json(RES)
+
+GET /lock/list
+200|ERR json(RES)
+
+
+PUT /card/set
+200|ERR json(RES)
+
+DELETE /card/delete?cardid
+200|ERR json(RES)
+
+GET /card/list
+200|ERR json(RES)
