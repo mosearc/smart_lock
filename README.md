@@ -102,8 +102,6 @@ Any computer accessible from the lock MCU through IP network capable of running 
 git clone https://github.com/mosearc/smart_lock.git
 ```
 - Open the folder corresponding to the module you want to compile/upload/run using the appropriate IDE (as specified in [Software requirements](#Software-requirements) section). Make sure to obtain the libraries needed.
-## User Guide
-
 ## Next Features
 - Remote block/unblock handling
 - More local control using numpad for input and screen for output
