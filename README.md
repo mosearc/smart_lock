@@ -128,12 +128,11 @@ git clone https://github.com/mosearc/smart_lock.git
 ```
 - Open the folder corresponding to the module you want to compile/upload/run using the appropriate IDE (as specified in [Software requirements](#Software-requirements) section). Make sure to obtain and import the libraries needed.
 ## Next Features
-- Remote block/unblock handling
-- More local control using numpad for input and screen for output
-- More remote control adding server functionalities
-- Various apps for handling locks/cardIds/pins (web app / mobile apps / etc.)
-- Server side activity monitor logger
-- Configurable server side activation/deactivation of specific doors basing on daily time.
+- Buzzer implementation as an alarm when the system is locked
+- More interrupts usage  (i.e. for PIR sensor)
+- Additional remote server functionalities
+- Side apps development for handling locks/cardIds/pins 
+- Activation/deactivation of specific doors basing on daily time
   
 ## Team members
 
