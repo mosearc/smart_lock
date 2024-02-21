@@ -121,7 +121,7 @@ This system consist in a servo motor that open the door when the pir sensor dete
 ![Image](/media/FSM_smart_lock.jpg)
 
 ## Getting Started
-- Mount the hardware following the schematic above.
+- Mount the hardware.
 - Clone the repo:
 ``` bash
 git clone https://github.com/mosearc/smart_lock.git
