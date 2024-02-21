@@ -16,7 +16,7 @@
 ## Description
 The project consists on a microcontroller device handling the mechanism opening and closing a door. Its job is to take as input authentication factors with sensors (i.e. RFID scanner for NFC card scan; NUMPAD for PIN or PUK), then contact a remote server on an IP network though WiFi and basing on server response decide if opening the door or not. It implements brute force prevention security measures like asking for PUK after 3 wrong PIN insertions. Our model allows to have N smart locks all connected to the same server through IP internet: this allows to add/remove/check identities remotely, but also to monitor when and who access any specific door (i.e. NFC cards and PINs can be created/deleted using a simple web app or mobile application; specific doors can be blocked in specific daily hours; etc.)
 ## Video
-[![Video](https://img.youtube.com/vi/HvxnWQClJyk/0.jpg =100x20)](https://www.youtube.com/watch?v=HvxnWQClJyk)
+[![Video](https://img.youtube.com/vi/HvxnWQClJyk/0.jpg)](https://www.youtube.com/watch?v=HvxnWQClJyk)
 
 [Link video](https://youtu.be/HvxnWQClJyk)
 
@@ -28,7 +28,7 @@ The project consists on a microcontroller device handling the mechanism opening 
 ### Hardware Requirements
 
 #### 1] MSP432P401R Board + Educational booster pack (led, display):
-![Image](/media/boosterpack.png =100x20)
+![Image](/media/boosterpack.png)
 ![Image](/media/msp.jpg)
 
 For our project we used MSP432P401R Board a microcontroller from Texas Instruments based on a 32-bit ARM Cortex-M4 CPU. The Educational Booster Pack with its additional hardware peripherals is also required.
