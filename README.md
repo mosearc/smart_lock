@@ -1,15 +1,15 @@
 # SERVER HANDLED SMART LOCK UNIT
 ![Image](/scheme.png)
 ## Section links
- - [Description] (#Description)
- - [Video] (#Video)
- - [Presentation] (#Presentation)
- - [Requirments] (#Requirments)
- - [Project Layout] (#Project Layout)
- - [Getting Started] (#Getting Started)
- - [Getting Started] (#Getting Started)
- - [User Guide] (#User Guide)
- - [Team Members] (#Team Members)
+ - [Description](#Description)
+ - [Video](#Video)
+ - [Presentation](#Presentation)
+ - [Requirments](#Requirments)
+ - [Project Layout](#Project-Layout)
+ - [Getting Started](#Getting-Started)
+ - [Getting Started](#Getting-Started)
+ - [User Guide](#User-Guide)
+ - [Team Members](#Team-Members)
 ## Description
 The project consists on a smart lock microcontroller device which authenticate an human user with 2 factors of authentication (NFC card and PIN) with the help of a IP reachable REST API HTTP server. Our model allows to have N smart locks all connected to the same server through IP internet. Thanks to the server, NFC cards and PINs can be created, deleted and handled remotelly.
 ## Video
