@@ -134,9 +134,12 @@ git clone https://github.com/mosearc/smart_lock.git
 - Various apps for handling locks/cardIds/pins (web app / mobile apps / etc.)
 - Server side activity monitor logger
 - Configurable server side activation/deactivation of specific doors basing on daily time.
--  
+  
 ## Team members
- - Mosè Arcaro
+
+ We always met each other in person to work at the project
+
+ - Mosè Arcaro 
  - Stefano Camposilvan
  - Gabriel Fumagalli
  - Luca Bortolotti
