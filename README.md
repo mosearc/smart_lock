@@ -1,4 +1,4 @@
-# SMART LOCK
+# SMART LOCK - Project for the UniTn course "Embedded Software for the Internet of Things" (group 5)
 ![Image](/media/scheme.png)
 
 ## Section links
