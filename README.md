@@ -1,4 +1,4 @@
-# SERVER HANDLED SMART LOCK UNIT
+# SMART LOCK
 ![Image](/media/scheme.png)
 
 ## Section links
@@ -117,6 +117,9 @@ This system consist in a servo motor that open the door when the pir sensor dete
     ├── package-lock.json
     └── protocol.txt
 ```
+## PROJECT LAYOUT
+![Image](/media/FSM_smart_lock.jpg)
+
 ## Getting Started
 - Mount the hardware following the schematic above.
 - Clone the repo:
@@ -133,7 +136,7 @@ git clone https://github.com/mosearc/smart_lock.git
 - Configurable server side activation/deactivation of specific doors basing on daily time.
 - 
 ## Team members
- - Mosè
- - Stefano
- - Gabriele
- - Luca
+ - Mosè Arcaro
+ - Stefano Camposilvan
+ - Gabriel Fumagalli
+ - Luca Bortolotti
