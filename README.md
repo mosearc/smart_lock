@@ -3,14 +3,14 @@
 
 ## Section links
  - [Description](#Description)
- - [Features](#Features)
  - [Video](#Video)
  - [Presentation](#Presentation)
  - [Requirments](#Requirments)
  - [Project Layout](#Project-Layout)
+ - [Software Design](#Software-Design)
  - [Getting Started](#Getting-Started)
  - [Getting Started](#Getting-Started)
- - [User Guide](#User-Guide)
+ - [Next Features](#Next-Features)
  - [Team Members](#Team-Members)
 
 ## Description
@@ -117,7 +117,7 @@ This system consist in a servo motor that open the door when the pir sensor dete
     ├── package-lock.json
     └── protocol.txt
 ```
-## PROJECT LAYOUT
+## Software Design
 ![Image](/media/FSM_smart_lock.jpg)
 
 ## Getting Started
