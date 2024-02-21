@@ -53,6 +53,7 @@ Any computer accessible from the lock MCU through IP network capable of running 
 3] Visual Studio Code
 - Nodejs / npm
 ## Project Layout
+``` bash
 .
 ├── Esp8266
 │   └── main_esp.cpp
@@ -93,6 +94,7 @@ Any computer accessible from the lock MCU through IP network capable of running 
     ├── package.json
     ├── package-lock.json
     └── protocol.txt
+```
 ## Getting Started
 - Mount the hardware following the schematic above.
 - Clone the repo:
