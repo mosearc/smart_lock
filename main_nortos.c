@@ -103,6 +103,8 @@ void fn_INIT(){
 
     GPIO_toggleOutputOnPin(GPIO_PORT_P2, GPIO_PIN0);
     current_state = DOOR_LOCKED;
+
+    Graphics_clearDisplay(&g_sContext);
 }
 
 void concatstr(char* str1, char* str2, char* buf) {
@@ -126,19 +128,11 @@ void fn_DOOR_LOCKED(){
 
     closeDoor(NULL);
 
-    Graphics_clearDisplay(&g_sContext);
-    sprintf(string, "PORTA BLOCCATA\n");
-    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
+    sprintf(string, "DOOR LOCKED\n");
+    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,20,OPAQUE_TEXT);
 
     resetVariables();
 
-//   string[0]='\0';
-//
-//    Graphics_clearDisplay(&g_sContext);
-//    string[0]='P'; string[1]='O'; string[2]='R'; string[3]='T'; string[4]='A';
-//    string[5]=' ';
-//    string[6]='B'; string[7]='L'; string[8]='O'; string[9]='C'; string[10]='C'; string[11]='A'; string[12]='T'; string[13]='A'; string[14]='\0';
-//    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
     char card[32];
     if(readCardID(NULL, card)){
         char msg[256];
@@ -146,8 +140,17 @@ void fn_DOOR_LOCKED(){
         send_UART(msg);
 
         if(check_Answer()){
+            sprintf(string, "CARD ACCEPTED!\n");
+            Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,70,OPAQUE_TEXT);
             current_state = PIN_ENABLED;
             start_timer(timer_timeout);
+
+            Graphics_clearDisplay(&g_sContext);
+        }else{
+            sprintf(string, "CARD DENIED!\n");
+            Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,70,OPAQUE_TEXT);
+
+            Graphics_clearDisplay(&g_sContext);
         }
 
     }
@@ -156,19 +159,8 @@ void fn_DOOR_LOCKED(){
 void fn_PIN_ENABLED(){
     printf("insert pin\n");
 
-    Graphics_clearDisplay(&g_sContext);
-    sprintf(string, "PIN ABILITATO\n");
-    Graphics_drawStringCentered(&g_sContext,(int8_t *)"PIN ABILITATO\n",AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-
-//    string[0]='\0';
-
-//    Graphics_clearDisplay(&g_sContext);
-//    string[0]='P'; string[1]='I'; string[2]='N';
-//    string[3]=' ';
-//    string[4]='A'; string[5]='B'; string[6]='I'; string[7]='L'; string[8]='I'; string[9]='T'; string[10]='A'; string[11]='T'; string[13]='O'; string[14]='\0';
-//    Graphics_drawStringCentered(&g_sContext,(int8_t *)string ,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-
-//    printf("%s \n", string);
+    sprintf(string, "PIN ENABLED\n");
+    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,20,OPAQUE_TEXT);
 
     checkPinPad(NULL);
     if(failed){
@@ -177,74 +169,62 @@ void fn_PIN_ENABLED(){
         stop_timer(timer_timeout);
         failed = 0;
         puk_enabled = 1;
+
+        Graphics_clearDisplay(&g_sContext);
     }
     if(passed){
         current_state = DOOR_UNLOCKED;
         clear();
         GPIO_toggleOutputOnPin(GPIO_PORT_P2, GPIO_PIN1);
         start_timer(timer_timeout);
+
+        Graphics_clearDisplay(&g_sContext);
     }
 }
 
 void fn_SYSTEM_LOCKED(){
     printf("insert puk\n");
 
-    Graphics_clearDisplay(&g_sContext);
-    sprintf(string, "PUK ABILITATO\n");
-    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-
-//    string[0]='\0';
-//
-//    string[0]='P'; string[1]='U'; string[2]='K';
-//    string[3]=' ';
-//    string[4]='R'; string[5]='I'; string[6]='C'; string[7]='H'; string[8]='I'; string[9]='E'; string[10]='S'; string[11]='T'; string[12]='\0';
+    sprintf(string, "PUK ENABLED\n");
+    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,20,OPAQUE_TEXT);
 
     checkPinPad(NULL);
     if(passed){
-        stopAlarm(NULL);
+        //stopAlarm(NULL);
         current_state = DOOR_LOCKED;
+
+        Graphics_clearDisplay(&g_sContext);
     }
 }
 
 void fn_DOOR_UNLOCKED(){
     printf("door unlocked\n");
 
-    Graphics_clearDisplay(&g_sContext);
-    sprintf(string, "PORTA SBLOCCATA\n");
-    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-
-
-//       string[0]='\0';
-//
-//        Graphics_clearDisplay(&g_sContext);
-//        string[0]='P'; string[1]='O'; string[2]='R'; string[3]='T'; string[4]='A';
-//        string[5]=' ';
-//        string[6]='S'; string[7]='L'; string[8]='O'; string[9]='C'; string[10]='C'; string[11]='A'; string[12]='T'; string[13]='A'; string[14]='\0';
-//        Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
+    sprintf(string, "DOOR UNLOCKED\n");
+    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,20,OPAQUE_TEXT);
 
     if(readPIR(NULL)){
         current_state = DOOR_OPEN;
         openDoor(NULL);
         start_timer(timer_timeout);
+
+        Graphics_clearDisplay(&g_sContext);
     }
 }
 
 void fn_DOOR_OPEN(){
     printf("porta aperta\n");
 
-    Graphics_clearDisplay(&g_sContext);
-    sprintf(string, "PORTA APERTA\n");
-    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
+    sprintf(string, "DOOR OPEN\n");
+    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,20,OPAQUE_TEXT);
 
-//       string[0]='\0';
-//
-//        Graphics_clearDisplay(&g_sContext);
-//        string[0]='P'; string[1]='O'; string[2]='R'; string[3]='T'; string[4]='A';
-//        string[5]=' ';
-//        string[6]='A'; string[7]='P'; string[8]='E'; string[9]='R'; string[10]='T'; string[11]='A'; string[12]='T'; string[13]='A'; string[14]='\0';
-//        Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
+    if(readPIR(NULL)){
+        sprintf(string, "MOVEMENT DETECTED\n");
+        Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,70,OPAQUE_TEXT);
+        start_timer(timer_timeout);
 
-    if(readPIR(NULL)) start_timer(timer_timeout);
+        Graphics_clearDisplay(&g_sContext);
+    }
 }
 
 void session_expired(Timer_Handle myHandle){
@@ -257,11 +237,6 @@ void session_expired(Timer_Handle myHandle){
 }
 
 void change_state(Timer_Handle myHandle){
-    /*if(current_state < NUM_STATES ){
-        (*fsm[current_state].state_function)();
-    }else{
-        //serious error
-    }*/
 }
 
 void configPorts(){
@@ -312,10 +287,9 @@ void configureAll(){
     Board_init();
     // Start NoRTOS
     NoRTOS_start();
-    // Call mainThread function
 
     configServo(NULL);
-    configBuzzer(NULL);
+    //configBuzzer(NULL);
     configNFC(NULL);
     configPIR(NULL);
     configGraphic(NULL);
@@ -329,7 +303,7 @@ void main(void){
     WDT_A_holdTimer(); // stop watchdog timer
     configureAll();
     start_timer(timer_state);
-    //fn_DOOR_LOCKED();
+
     while(1){
         PCM_gotoLPM0();
         if(current_state < NUM_STATES ){
@@ -340,4 +314,3 @@ void main(void){
 
     }
 }
-

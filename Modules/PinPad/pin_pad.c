@@ -153,10 +153,8 @@ void checkPinPad(void *arg0){
 //                string[6]='P'; string[7]='A'; string[8]='S'; string[9]='S'; string[10]='W'; string[11]='O'; string[12]='R'; string[13]='D'; string[14]='\0';
 //                Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
 
-//            sprintf(string, "Tries left: %d", 3-try);
-//            Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-
-            printf("Tries left: %d", 3-try);
+            sprintf(string, "Tries left: %d", 3-try);
+            Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
 
 //               string[0]='\0';
 //               t=3-try;
@@ -294,7 +292,7 @@ void checkPinPad(void *arg0){
 
             if(passed == 0){
                 printf("sbagliato\n");
-                sprintf(string, "Wrong code!");
+                sprintf(string, "Wrong code!  42");
                 Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,60,OPAQUE_TEXT);
                 Graphics_clearDisplay(&g_sContext);
 
