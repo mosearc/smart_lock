@@ -53,8 +53,7 @@ Any computer accessible from the lock MCU through IP network capable of running 
 3] Visual Studio Code
 - Nodejs / npm
 ## Project Layout
-```
-
+``` 
 .
 ├── Esp8266
 │   └── main_esp.cpp
