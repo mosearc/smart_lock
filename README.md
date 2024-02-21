@@ -21,6 +21,7 @@ The project consists on a microcontroller device handling the mechanism opening 
 
 ## Video
 [![Video](https://img.youtube.com/vi/HvxnWQClJyk/0.jpg)](https://www.youtube.com/watch?v=HvxnWQClJyk)
+
 [Link video](https://youtu.be/HvxnWQClJyk)
 
 ## Presentation
