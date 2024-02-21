@@ -53,6 +53,46 @@ Any computer accessible from the lock MCU through IP network capable of running 
 3] Visual Studio Code
 - Nodejs / npm
 ## Project Layout
+.
+├── Esp8266
+│   └── main_esp.cpp
+├── msp432p401r
+│   ├── Debug
+│   │   ├── makefile
+│   │   └── syscfg
+│   │       ├── ti_drivers_config.c
+│   │       └── ti_drivers_config.h
+│   ├── main_nortos.c
+│   ├── Modules
+│   │   ├── Buzzer
+│   │   │   ├── buzzer.c
+│   │   │   └── buzzer.h
+│   │   ├── NFC
+│   │   │   ├── mfrc522.c
+│   │   │   ├── mfrc522.h
+│   │   │   ├── nfc.c
+│   │   │   └── nfc.h
+│   │   ├── PinPad
+│   │   │   ├── LcdDriver.c
+│   │   │   ├── LcdDriver.h
+│   │   │   ├── pin_pad.c
+│   │   │   └── pin_pad.h
+│   │   ├── PIR
+│   │   │   ├── pir.c
+│   │   │   └── pir.h
+│   │   ├── Servo
+│   │   │   ├── servo.c
+│   │   │   └── servo.h
+│   │   └── UART
+│   │       ├── uart.c
+│   │       └── uart.h
+│   └── servo.syscfg
+└── Server
+    ├── app.js
+    ├── db.json
+    ├── package.json
+    ├── package-lock.json
+    └── protocol.txt
 ## Getting Started
 - Mount the hardware following the schematic above.
 - Clone the repo:
