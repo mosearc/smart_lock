@@ -1,5 +1,4 @@
 # SERVER HANDLED SMART LOCK UNIT
-
 ![Image](/media/scheme.png)
 
 ## Section links
@@ -30,28 +29,52 @@ The project consists on a microcontroller device handling the mechanism opening 
 ### Hardware Requirements
 
 #### 1] MSP432P401R Board + Educational booster pack (led, display):
-
-![Image](/media/boosterpack)
-![Image](/media/msp)
+![Image](/media/boosterpack.png)
+![Image](/media/msp.jpg)
 
 For our project we used MSP432P401R Board a microcontroller from Texas Instruments based on a 32-bit ARM Cortex-M4 CPU. The Educational Booster Pack with its additional hardware peripherals is also required.
+With lcd and the led in the boosterpack we display the information about the status useful for the user.
 
+####  2] RFID SENSOR
+![Image](/media/rfid.png)
 
-  
-#### 2] ESP8266MOD (server-to-msp interconnection through WiFi internet access):
+This component proide information about the nfc card; needs a power supply of 3.3V to operate. It sends informations to the board throught SPI protocol.
+
+#### 3] PIN PAD
+![Image](/media/pinpad.jpg)
+
+This component implement the second authentication factor, it is used to collect the pin code.
+
+#### 4] ESP8266MOD (server-to-msp interconnection through WiFi internet access):
+![Image](/media/esp.png)
+
 MCU capable of connecting WiFi to send IP packets and capable of communicate serially through UART with the MSP432. When the MSP432 needs to contact the server, it can send to the ESP8266 a specific command through UART (to check if a NFC card is authorized to open this specific door, for example). The ESP8266 will forward it to the server using its WiFi module; when receives a response from the server, it informs back the MSP432.
 
-#### 3] SERVER:
-Any computer accessible from the lock MCU through IP network capable of running Nodejs.
-### Software requirements
-1] Code Composer Studio (Texas Instrument)
-- [MSP Driver Library](https://www.ti.com/tool/MSPDRIVERLIB)
+#### 5] SERVER:
 
-2] Arduino IDE
+Any computer accessible from the lock MCU through IP network capable of running Nodejs.
+
+#### 6] DOOR OPEN SYSTEM
+![Image](/media/pir.jpg)
+![Image](/media/servo.jpg)
+
+This system consist in a servo motor that open the door when the pir sensor detect a movement. To work it needs a power supply of 5V taken from the board.
+
+
+### Software requirements
+1] [Code Composer Studio](https://www.ti.com/tool/CCSTUDIO)
+- [MSP Driver Library](https://www.ti.com/tool/MSPDRIVERLIB)
+- [MSP Graphics Library](https://www.ti.com/tool/MSP-GRLIB)
+
+2] [Arduino ide](https://www.arduino.cc/en/software)
 - ESP8266 Library / Arduino_JSON
 
 3] Visual Studio Code
 - Nodejs / npm
+
+
+
+  
 ## Project Layout
 .
 ├── Esp8266
@@ -93,6 +116,7 @@ Any computer accessible from the lock MCU through IP network capable of running 
     ├── package.json
     ├── package-lock.json
     └── protocol.txt
+    
 ## Getting Started
 - Mount the hardware following the schematic above.
 - Clone the repo:
