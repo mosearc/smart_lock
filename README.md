@@ -32,12 +32,12 @@ The project consists on a microcontroller device handling the mechanism opening 
 ![Image](/media/msp.jpg)
 
 For our project we used MSP432P401R Board a microcontroller from Texas Instruments based on a 32-bit ARM Cortex-M4 CPU. The Educational Booster Pack with its additional hardware peripherals is also required.
-With lcd and the led in the boosterpack we display the information about the status useful for the user.
+With the led and the lcd in the boosterpack we display the information about the status useful for the user.
 
 ####  2] RFID SENSOR
 ![Image](/media/rfid.png)
 
-This component proide information about the nfc card; needs a power supply of 3.3V to operate. It sends informations to the board throught SPI protocol.
+This component provide information about the nfc card; needs a power supply of 3.3V to operate. It sends informations to the board throught SPI protocol.
 
 #### 3] PIN PAD
 ![Image](/media/pinpad.jpg)
