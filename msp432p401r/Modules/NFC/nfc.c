@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-
 #include <NoRTOS.h>
 
 /* Driver configuration */
@@ -26,10 +25,6 @@ uint8_t cardID[5];
 SPI_Params spiParams;
 SPI_Handle spiHandle;
 SPI_Transaction spiTransaction = {0};
-//SPI_Transaction spiTransaction;
-
-
-
 
 void configNFC(void *arg0)
 {
@@ -39,9 +34,6 @@ void configNFC(void *arg0)
     SPI_Params_init(&spiParams);
     spiParams.bitRate = 4000000;
     spiParams.dataSize = 8;
-//    spiParams.transferTimeout = 1000000;
-//    spiParams.mode = SPI_SLAVE;
-//    spiParams.transferCallbackFxn = ziogigi;
     spiParams.transferMode = SPI_MODE_BLOCKING;
 
     spiHandle = SPI_open(CONFIG_SPI_0, &spiParams);
