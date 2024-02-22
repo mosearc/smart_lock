@@ -143,8 +143,6 @@ void checkPinPad(void *arg0){
             sprintf(string, "Insert password: ");
             Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,30,OPAQUE_TEXT);
 
-            printf("insert password\n");
-
             sprintf(string, "Tries left: %d", 3-try);
             Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
 
@@ -166,7 +164,6 @@ void checkPinPad(void *arg0){
             }
 
             if(passed == 0){
-                printf("sbagliato\n");
                 sprintf(string, "Wrong password!");
                 Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,60,OPAQUE_TEXT);
 
@@ -176,32 +173,22 @@ void checkPinPad(void *arg0){
                     Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,70,OPAQUE_TEXT);
                     Graphics_clearDisplay(&g_sContext);
 
-
-                    printf("try again\n");
-
                 }else{
                     sprintf(string, "System locked!");
                     Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,70,OPAQUE_TEXT);
-
-                    printf("system locked!\n");
 
                     failed = 1;
                     Graphics_clearDisplay(&g_sContext);
                 }
             }else{
-                printf("giusto\n");
                 sprintf(string, "Door unlocked!");
                 Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,70,OPAQUE_TEXT);
                 Graphics_clearDisplay(&g_sContext);
-
-                printf("door unlocked!\n");
             }
 
         }else{
             sprintf(string, "Insert secret code: ");
             Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,30,OPAQUE_TEXT);
-
-            printf("insert puk\n");
 
             passed = 1;
             digit = 0;
@@ -209,7 +196,6 @@ void checkPinPad(void *arg0){
                 char key = getKey(NULL);
                 if(key != '\0') {
                     sprintf(string, "*");
-                    printf("*");
                     Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,20+20*digit,40,OPAQUE_TEXT);
 
                     if(key != secretCode[digit]){
@@ -220,13 +206,11 @@ void checkPinPad(void *arg0){
             }
 
             if(passed == 0){
-                printf("sbagliato\n");
                 sprintf(string, "Wrong code!  42");
                 Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,60,OPAQUE_TEXT);
                 Graphics_clearDisplay(&g_sContext);
 
             }else{
-                printf("giusto\n System unlocked!\n");
                 sprintf(string, "System unlocked!");
                 Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,70,OPAQUE_TEXT);
                 Graphics_clearDisplay(&g_sContext);
