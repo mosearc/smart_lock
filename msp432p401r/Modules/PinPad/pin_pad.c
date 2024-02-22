@@ -111,7 +111,6 @@ char getKey(void *arg0){
                     break;
             }
 
-
             if(pressed == 1){
                 //Return the corresponding key from the keymap
                 return keymap[row][col];
@@ -146,24 +145,8 @@ void checkPinPad(void *arg0){
 
             printf("insert password\n");
 
-//               string[0]='\0';
-//
-//                string[0]='I'; string[1]='N'; string[2]='S'; string[3]='R'; string[4]='T';
-//                string[5]=' ';
-//                string[6]='P'; string[7]='A'; string[8]='S'; string[9]='S'; string[10]='W'; string[11]='O'; string[12]='R'; string[13]='D'; string[14]='\0';
-//                Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-
             sprintf(string, "Tries left: %d", 3-try);
             Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-
-//               string[0]='\0';
-//               t=3-try;
-//
-//                string[0]='T'; string[1]='R'; string[2]='I'; string[3]='E'; string[4]='S';
-//                string[5]=' ';
-//                string[6]='L'; string[7]='E'; string[8]='F'; string[9]='T'; string[10]=':'; string[11]=t; string[12]=' '; string[13]=' '; string[14]='\0';
-//                Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-
 
             passed = 1;
             digit = 0;
@@ -174,13 +157,6 @@ void checkPinPad(void *arg0){
                     Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,15+20*digit,40,OPAQUE_TEXT);
 
                     printf("*");
-
-//                   string[0]='\0';
-//
-//                    string[0]='*'; string[1]=' '; string[2]=' '; string[3]=' '; string[4]=' ';
-//                    string[5]=' ';
-//                    string[6]=' '; string[7]=' '; string[8]=' '; string[9]=' '; string[10]=' '; string[11]=' '; string[12]=' '; string[13]=' '; string[14]='\0';
-//                    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
 
                     if(key != correctPass[digit]){
                         passed = 0;
@@ -194,14 +170,6 @@ void checkPinPad(void *arg0){
                 sprintf(string, "Wrong password!");
                 Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,60,OPAQUE_TEXT);
 
-//                   string[0]='\0';
-//
-//                    string[0]='w'; string[1]='r'; string[2]='O'; string[3]='N'; string[4]='G';
-//                    string[5]=' ';
-//                    string[6]='P'; string[7]='A'; string[8]='S'; string[9]='S'; string[10]='W'; string[11]='O'; string[12]='R'; string[13]='D'; string[14]='\0';
-//                    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-
-
                 try++;
                 if(try < 3){
                     sprintf(string, "Try again!");
@@ -211,28 +179,11 @@ void checkPinPad(void *arg0){
 
                     printf("try again\n");
 
-//                       string[0]='\0';
-//
-//                        string[0]='T'; string[1]='R'; string[2]='Y'; string[3]=' '; string[4]=' ';
-//                        string[5]=' ';
-//                        string[6]='A'; string[7]='G'; string[8]='A'; string[9]='I'; string[10]='N'; string[11]=' '; string[12]=' '; string[13]=' '; string[14]='\0';
-//                        Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-//                                        Graphics_clearDisplay(&g_sContext);
-
-
                 }else{
                     sprintf(string, "System locked!");
                     Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,70,OPAQUE_TEXT);
 
                     printf("system locked!\n");
-
-//                       string[0]='\0';
-//
-//                        string[0]='S'; string[1]='Y'; string[2]='S'; string[3]='T'; string[4]='M';
-//                        string[5]=' ';
-//                        string[6]='L'; string[7]='O'; string[8]='C'; string[9]='K'; string[10]='E'; string[11]='D'; string[12]=' '; string[13]=' '; string[14]='\0';
-//                        Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-
 
                     failed = 1;
                     Graphics_clearDisplay(&g_sContext);
@@ -244,15 +195,6 @@ void checkPinPad(void *arg0){
                 Graphics_clearDisplay(&g_sContext);
 
                 printf("door unlocked!\n");
-
-//                   string[0]='\0';
-//
-//                    string[0]='D'; string[1]='O'; string[2]='O'; string[3]='R'; string[4]=' ';
-//                    string[5]=' ';
-//                    string[6]='U'; string[7]='N'; string[8]='L'; string[9]='O'; string[10]='C'; string[11]='K'; string[12]='E'; string[13]='D'; string[14]='\0';
-//                    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-//                                    Graphics_clearDisplay(&g_sContext);
-
             }
 
         }else{
@@ -260,14 +202,6 @@ void checkPinPad(void *arg0){
             Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,30,OPAQUE_TEXT);
 
             printf("insert puk\n");
-
-//               string[0]='\0';
-//
-//                string[0]='I'; string[1]='N'; string[2]='S'; string[3]='E'; string[4]='T';
-//                string[5]=' ';
-//                string[6]='P'; string[7]='U'; string[8]='K'; string[9]='C'; string[10]='O'; string[11]='D'; string[12]='E'; string[13]=' '; string[14]='\0';
-//                Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-
 
             passed = 1;
             digit = 0;
@@ -277,11 +211,6 @@ void checkPinPad(void *arg0){
                     sprintf(string, "*");
                     printf("*");
                     Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,20+20*digit,40,OPAQUE_TEXT);
-
-//                       string[0]='\0';
-//
-//                        string[0]='*';
-//                        Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
 
                     if(key != secretCode[digit]){
                         passed = 0;
@@ -296,29 +225,11 @@ void checkPinPad(void *arg0){
                 Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,60,OPAQUE_TEXT);
                 Graphics_clearDisplay(&g_sContext);
 
-//                   string[0]='\0';
-//
-//                    string[0]='W'; string[1]='R'; string[2]='O'; string[3]='N'; string[4]='G';
-//                    string[5]=' ';
-//                    string[6]='C'; string[7]='O'; string[8]='D'; string[9]='E'; string[10]=' '; string[11]=' '; string[12]=' '; string[13]=' '; string[14]='\0';
-//                    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-//                                    Graphics_clearDisplay(&g_sContext);
-
-
             }else{
                 printf("giusto\n System unlocked!\n");
                 sprintf(string, "System unlocked!");
                 Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,70,OPAQUE_TEXT);
                 Graphics_clearDisplay(&g_sContext);
-
-//                   string[0]='\0';
-//
-//                    string[0]='S'; string[1]='Y'; string[2]='S'; string[3]='T'; string[4]='M';
-//                    string[5]=' ';
-//                    string[6]='U'; string[7]='N'; string[8]='L'; string[9]='O'; string[10]='C'; string[11]='K'; string[12]='E'; string[13]='D'; string[14]='\0';
-//                    Graphics_drawStringCentered(&g_sContext,(int8_t *)string,AUTO_STRING_LENGTH,64,90,OPAQUE_TEXT);
-//                                    Graphics_clearDisplay(&g_sContext);
-
             }
         }
     }
