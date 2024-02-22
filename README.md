@@ -14,7 +14,7 @@
  - [Team Members](#Team-Members)
 
 ## Description
-The project consists on a microcontroller device handling the mechanism opening and closing a door. Its job is to take as input authentication factors with sensors (i.e. RFID scanner for NFC card scan; NUMPAD for PIN or PUK), then contact a remote server on an IP network though WiFi and basing on server response decide if opening the door or not. It implements brute force prevention security measures like asking for PUK after 3 wrong PIN insertions. Our model allows to have N smart locks all connected to the same server through IP internet: this allows to add/remove/check identities remotely, but also to monitor when and who access any specific door (i.e. NFC cards and PINs can be created/deleted using a simple web app or mobile application; specific doors can be blocked in specific daily hours; etc.)
+The project consists on a microcontroller device handling the mechanism that opens and closes a door. Its job is to take as inputs two authentication factors with sensors (i.e. RFID scanner for NFC card scan; NUMPAD for PIN or PUK), then contact a remote server on an IP network though WiFi: basing on server's response, it then decides if opening the door or not. Our project also implements brute force prevention security measures, like asking for PUK after 3 wrong PIN insertions. Our model could handle N smart locks all connected to the same server through IP internet: this allows to add/remove/check identities remotely, but also to monitor when and who access any specific door (i.e. NFC cards and PINs can be created/deleted using a simple web app or mobile application; specific doors can be blocked in specific daily hours; etc.)
 ## Video
 [![Video](https://img.youtube.com/vi/HvxnWQClJyk/0.jpg)](https://www.youtube.com/watch?v=HvxnWQClJyk)
 
@@ -31,33 +31,33 @@ The project consists on a microcontroller device handling the mechanism opening 
 ![Image](/media/boosterpack.png)
 ![Image](/media/msp.jpg)
 
-For our project we used MSP432P401R Board a microcontroller from Texas Instruments based on a 32-bit ARM Cortex-M4 CPU. The Educational Booster Pack with its additional hardware peripherals is also required.
-With the led and the lcd in the boosterpack we display the information about the status useful for the user.
+For our project we used MSP432P401R Board, a microcontroller from Texas Instruments based on a 32-bit ARM Cortex-M4 CPU. The Educational Booster Pack with its additional hardware peripherals is also required.
+With the led and the lcd in the boosterpack we display the information about the status which are useful for the user.
 
 ####  2] RFID SENSOR
 ![Image](/media/rfid.png)
 
-This component provide information about the nfc card; needs a power supply of 3.3V to operate. It sends informations to the board throught SPI protocol.
+This component provides information about the nfc card; needs a power supply of 3.3V to operate. It sends informations to the board throught SPI protocol.
 
 #### 3] PIN PAD
 ![Image](/media/pinpad.jpg)
 
-This component implement the second authentication factor, it is used to collect the pin code.
+This component implements the second authentication factor, it is used to collect the pin code.
 
 #### 4] ESP8266MOD (server-to-msp interconnection through WiFi internet access):
 ![Image](/media/esp.png)
 
-MCU capable of connecting WiFi to send IP packets and capable of communicate serially through UART with the MSP432. When the MSP432 needs to contact the server, it can send to the ESP8266 a specific command through UART (to check if a NFC card is authorized to open this specific door, for example). The ESP8266 will forward it to the server using its WiFi module; when receives a response from the server, it informs back the MSP432.
+MCU capable of connecting WiFi to send IP packets and capable to serially communicate through UART with the MSP432. When the MSP432 needs to contact the server, it can send to the ESP8266 a specific command through UART (to check if a NFC card is authorized to open this specific door, for example). The ESP8266 will forward it to the server using its WiFi module; when receives a response from the server, it informs back the MSP432.
 
 #### 5] SERVER:
 
-Any computer accessible from the lock MCU through IP network capable of running Nodejs.
+Any computer accessible from the lock MCU through IP network which is also capable of running Nodejs.
 
 #### 6] DOOR OPEN SYSTEM
 ![Image](/media/pir.jpg)
 ![Image](/media/servo.jpg)
 
-This system consist in a servo motor that open the door when the pir sensor detect a movement. To work it needs a power supply of 5V taken from the board.
+This system consists in a servo motor that opens the door when the pir sensor detects a movement. In order to work properly, it needs a power supply of 5V taken from the board.
 
 
 ### Software requirements
